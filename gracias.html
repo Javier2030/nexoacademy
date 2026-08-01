@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pago recibido — NEXO Academy</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#080a12; --bg2:#0e1220; --card:rgba(255,255,255,.045); --bd:rgba(255,255,255,.10);
+ --tx:#eef2fb; --mut:#95a0bb; --oro:#f0c977; --oro2:#ffe0a3; --verde:#4fe0a8;
+}
+@media(prefers-color-scheme:light){:root{
+ --bg:#f7f8fc; --bg2:#eef1f8; --card:rgba(255,255,255,.75); --bd:rgba(15,20,40,.10);
+ --tx:#101527; --mut:#5b6788; --oro:#b8862c; --oro2:#8c6414; --verde:#0e9e6a}}
+:root[data-theme=dark]{--bg:#080a12;--bg2:#0e1220;--card:rgba(255,255,255,.045);
+ --bd:rgba(255,255,255,.10);--tx:#eef2fb;--mut:#95a0bb;--oro:#f0c977;--oro2:#ffe0a3;--verde:#4fe0a8}
+:root[data-theme=light]{--bg:#f7f8fc;--bg2:#eef1f8;--card:rgba(255,255,255,.75);
+ --bd:rgba(15,20,40,.10);--tx:#101527;--mut:#5b6788;--oro:#b8862c;--oro2:#8c6414;--verde:#0e9e6a}
+
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+ background:var(--bg);color:var(--tx);line-height:1.62;-webkit-font-smoothing:antialiased;
+ overflow-x:hidden}
+
+/* malla de gradiente viva — el fondo respira, no es un color plano */
+.malla{position:fixed;inset:-30vh -20vw;z-index:-1;filter:blur(85px);opacity:.55;pointer-events:none}
+.malla i{position:absolute;border-radius:50%;display:block;animation:flotar 26s ease-in-out infinite}
+.malla i:nth-child(1){width:52vw;height:52vw;left:-8%;top:2%;background:#3b2f7e;animation-delay:-2s}
+.malla i:nth-child(2){width:44vw;height:44vw;right:-6%;top:-6%;background:#7a5320;animation-delay:-9s}
+.malla i:nth-child(3){width:46vw;height:46vw;left:22%;bottom:-14%;background:#164b52;animation-delay:-16s}
+@keyframes flotar{0%,100%{transform:translate(0,0) scale(1)}
+ 33%{transform:translate(5vw,-4vh) scale(1.12)} 66%{transform:translate(-4vw,5vh) scale(.93)}}
+@media(prefers-reduced-motion:reduce){.malla i{animation:none}}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+header{padding:96px 0 44px;text-align:center;position:relative}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--card);
+ border:1px solid var(--bd);border-radius:999px;padding:7px 16px;font-size:13px;
+ color:var(--mut);margin-bottom:24px;backdrop-filter:blur(12px)}
+.punto{width:7px;height:7px;border-radius:50%;background:var(--verde);
+ box-shadow:0 0 0 0 var(--verde);animation:latir 2.2s infinite}
+@keyframes latir{0%{box-shadow:0 0 0 0 rgba(79,224,168,.6)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(32px,6.2vw,62px);letter-spacing:-.035em;line-height:1.06;font-weight:800}
+h1 em{font-style:normal;background:linear-gradient(105deg,var(--oro),var(--oro2) 55%,var(--oro));
+ -webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mut);font-size:clamp(15px,2.1vw,19px);margin:20px auto 0;max-width:640px}
+
+.cifras{display:flex;gap:38px;justify-content:center;flex-wrap:wrap;margin:44px 0 8px}
+.cifra b{display:block;font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-.03em;
+ background:linear-gradient(180deg,var(--tx),var(--mut));-webkit-background-clip:text;
+ background-clip:text;color:transparent}
+.cifra span{font-size:12.5px;color:var(--mut);letter-spacing:.07em;text-transform:uppercase}
+
+h2{font-size:clamp(22px,3.4vw,32px);margin:76px 0 8px;letter-spacing:-.025em;font-weight:750}
+.sub{color:var(--mut);font-size:15px;margin-bottom:26px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(302px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:19px;padding:24px;
+ display:flex;flex-direction:column;backdrop-filter:blur(16px);position:relative;overflow:hidden;
+ opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),
+ transform .6s cubic-bezier(.2,.7,.3,1),border-color .25s}
+.card.ver{opacity:1;transform:none}
+.card::after{content:'';position:absolute;inset:0;border-radius:19px;padding:1px;
+ background:linear-gradient(135deg,transparent 32%,var(--oro),transparent 68%);
+ -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+ -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::after{opacity:.75}
+.card:hover{transform:translateY(-5px)}
+.tag{align-self:flex-start;background:rgba(240,201,119,.11);color:var(--oro);
+ font-size:11px;padding:4px 11px;border-radius:999px;letter-spacing:.06em;
+ text-transform:uppercase;font-weight:650;margin-bottom:13px}
+.card h3{font-size:17.5px;line-height:1.32;margin-bottom:11px;letter-spacing:-.015em;font-weight:700}
+.meta{color:var(--mut);font-size:13.5px;margin-bottom:8px}
+.gancho{color:var(--mut);font-size:13.5px;margin-bottom:16px;opacity:.85}
+.price{font-size:31px;font-weight:800;letter-spacing:-.035em;margin:auto 0 15px;
+ background:linear-gradient(105deg,var(--oro),var(--oro2));-webkit-background-clip:text;
+ background-clip:text;color:transparent}
+.price small{font-size:13px;color:var(--mut);-webkit-text-fill-color:var(--mut);font-weight:500}
+
+.pagos{display:flex;flex-direction:column;gap:7px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;
+ padding:12px;border-radius:11px;text-decoration:none;font-size:14.5px;font-weight:650;
+ border:1px solid transparent;transition:.18s;cursor:pointer}
+.btn.p1{background:linear-gradient(105deg,var(--oro),var(--oro2));color:#12141d}
+.btn.p1:hover{filter:brightness(1.09);transform:translateY(-1px)}
+.btn.p2{background:transparent;color:var(--tx);border-color:var(--bd)}
+.btn.p2:hover{border-color:var(--oro);color:var(--oro)}
+.btn.p3{background:transparent;color:var(--mut);font-size:13px;padding:8px}
+.btn.p3:hover{color:var(--oro)}
+
+.nota{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--verde);
+ border-radius:0 14px 14px 0;padding:17px 21px;margin:30px 0;color:var(--mut);font-size:14.5px;
+ backdrop-filter:blur(12px)}
+.nota b{color:var(--tx)}
+footer{margin:88px 0 44px;padding-top:30px;border-top:1px solid var(--bd);
+ color:var(--mut);font-size:13.5px;text-align:center}
+footer a{color:var(--oro);text-decoration:none}
+.legal{font-size:12px;opacity:.72;margin-top:14px;max-width:640px;margin-inline:auto}
+</style></head><body>
+<div class="malla" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="wrap"><header>
+  <div class="pill"><span class="punto"></span> pago registrado</div>
+  <h1>Gracias. <em>Ya está.</em></h1>
+  <p class="lead">Recibimos tu pago. Envíanos el correo donde quieres recibir el curso y te
+     llega el enlace de descarga — video, workbook y plantillas.</p>
+  <div style="margin-top:32px">
+    <a class="btn p1" style="display:inline-flex;padding:14px 30px"
+       href="mailto:apolo489@gmail.com?subject=Recibi%20mi%20pago%20-%20enviar%20curso">
+       Enviar mi correo de entrega</a>
+  </div>
+  <p class="lead" style="font-size:14px;margin-top:26px">
+     Si prefieres, escribe directo a <a href="mailto:apolo489@gmail.com" style="color:var(--oro)">apolo489@gmail.com</a>
+     con el nombre del curso.</p>
+</header></div></body></html>

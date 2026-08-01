@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXO Academy — cursos que dicen lo que entregan</title>
+<meta name="description" content="Cursos prácticos de negocio, finanzas e IA. Duración real medida del archivo, sin promesas infladas. Pago en cripto, tarjeta o transferencia.">
+<meta property="og:title" content="NEXO Academy"><meta property="og:type" content="website">
+<meta property="og:description" content="Cursos prácticos con duración real verificable. Desde $19 USD.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#080a12; --bg2:#0e1220; --card:rgba(255,255,255,.045); --bd:rgba(255,255,255,.10);
+ --tx:#eef2fb; --mut:#95a0bb; --oro:#f0c977; --oro2:#ffe0a3; --verde:#4fe0a8;
+}
+@media(prefers-color-scheme:light){:root{
+ --bg:#f7f8fc; --bg2:#eef1f8; --card:rgba(255,255,255,.75); --bd:rgba(15,20,40,.10);
+ --tx:#101527; --mut:#5b6788; --oro:#b8862c; --oro2:#8c6414; --verde:#0e9e6a}}
+:root[data-theme=dark]{--bg:#080a12;--bg2:#0e1220;--card:rgba(255,255,255,.045);
+ --bd:rgba(255,255,255,.10);--tx:#eef2fb;--mut:#95a0bb;--oro:#f0c977;--oro2:#ffe0a3;--verde:#4fe0a8}
+:root[data-theme=light]{--bg:#f7f8fc;--bg2:#eef1f8;--card:rgba(255,255,255,.75);
+ --bd:rgba(15,20,40,.10);--tx:#101527;--mut:#5b6788;--oro:#b8862c;--oro2:#8c6414;--verde:#0e9e6a}
+
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+ background:var(--bg);color:var(--tx);line-height:1.62;-webkit-font-smoothing:antialiased;
+ overflow-x:hidden}
+
+/* malla de gradiente viva — el fondo respira, no es un color plano */
+.malla{position:fixed;inset:-30vh -20vw;z-index:-1;filter:blur(85px);opacity:.55;pointer-events:none}
+.malla i{position:absolute;border-radius:50%;display:block;animation:flotar 26s ease-in-out infinite}
+.malla i:nth-child(1){width:52vw;height:52vw;left:-8%;top:2%;background:#3b2f7e;animation-delay:-2s}
+.malla i:nth-child(2){width:44vw;height:44vw;right:-6%;top:-6%;background:#7a5320;animation-delay:-9s}
+.malla i:nth-child(3){width:46vw;height:46vw;left:22%;bottom:-14%;background:#164b52;animation-delay:-16s}
+@keyframes flotar{0%,100%{transform:translate(0,0) scale(1)}
+ 33%{transform:translate(5vw,-4vh) scale(1.12)} 66%{transform:translate(-4vw,5vh) scale(.93)}}
+@media(prefers-reduced-motion:reduce){.malla i{animation:none}}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+header{padding:96px 0 44px;text-align:center;position:relative}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--card);
+ border:1px solid var(--bd);border-radius:999px;padding:7px 16px;font-size:13px;
+ color:var(--mut);margin-bottom:24px;backdrop-filter:blur(12px)}
+.punto{width:7px;height:7px;border-radius:50%;background:var(--verde);
+ box-shadow:0 0 0 0 var(--verde);animation:latir 2.2s infinite}
+@keyframes latir{0%{box-shadow:0 0 0 0 rgba(79,224,168,.6)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(32px,6.2vw,62px);letter-spacing:-.035em;line-height:1.06;font-weight:800}
+h1 em{font-style:normal;background:linear-gradient(105deg,var(--oro),var(--oro2) 55%,var(--oro));
+ -webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mut);font-size:clamp(15px,2.1vw,19px);margin:20px auto 0;max-width:640px}
+
+.cifras{display:flex;gap:38px;justify-content:center;flex-wrap:wrap;margin:44px 0 8px}
+.cifra b{display:block;font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-.03em;
+ background:linear-gradient(180deg,var(--tx),var(--mut));-webkit-background-clip:text;
+ background-clip:text;color:transparent}
+.cifra span{font-size:12.5px;color:var(--mut);letter-spacing:.07em;text-transform:uppercase}
+
+h2{font-size:clamp(22px,3.4vw,32px);margin:76px 0 8px;letter-spacing:-.025em;font-weight:750}
+.sub{color:var(--mut);font-size:15px;margin-bottom:26px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(302px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:19px;padding:24px;
+ display:flex;flex-direction:column;backdrop-filter:blur(16px);position:relative;overflow:hidden;
+ opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),
+ transform .6s cubic-bezier(.2,.7,.3,1),border-color .25s}
+.card.ver{opacity:1;transform:none}
+.card::after{content:'';position:absolute;inset:0;border-radius:19px;padding:1px;
+ background:linear-gradient(135deg,transparent 32%,var(--oro),transparent 68%);
+ -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+ -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::after{opacity:.75}
+.card:hover{transform:translateY(-5px)}
+.tag{align-self:flex-start;background:rgba(240,201,119,.11);color:var(--oro);
+ font-size:11px;padding:4px 11px;border-radius:999px;letter-spacing:.06em;
+ text-transform:uppercase;font-weight:650;margin-bottom:13px}
+.card h3{font-size:17.5px;line-height:1.32;margin-bottom:11px;letter-spacing:-.015em;font-weight:700}
+.meta{color:var(--mut);font-size:13.5px;margin-bottom:8px}
+.gancho{color:var(--mut);font-size:13.5px;margin-bottom:16px;opacity:.85}
+.price{font-size:31px;font-weight:800;letter-spacing:-.035em;margin:auto 0 15px;
+ background:linear-gradient(105deg,var(--oro),var(--oro2));-webkit-background-clip:text;
+ background-clip:text;color:transparent}
+.price small{font-size:13px;color:var(--mut);-webkit-text-fill-color:var(--mut);font-weight:500}
+
+.pagos{display:flex;flex-direction:column;gap:7px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;
+ padding:12px;border-radius:11px;text-decoration:none;font-size:14.5px;font-weight:650;
+ border:1px solid transparent;transition:.18s;cursor:pointer}
+.btn.p1{background:linear-gradient(105deg,var(--oro),var(--oro2));color:#12141d}
+.btn.p1:hover{filter:brightness(1.09);transform:translateY(-1px)}
+.btn.p2{background:transparent;color:var(--tx);border-color:var(--bd)}
+.btn.p2:hover{border-color:var(--oro);color:var(--oro)}
+.btn.p3{background:transparent;color:var(--mut);font-size:13px;padding:8px}
+.btn.p3:hover{color:var(--oro)}
+
+.nota{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--verde);
+ border-radius:0 14px 14px 0;padding:17px 21px;margin:30px 0;color:var(--mut);font-size:14.5px;
+ backdrop-filter:blur(12px)}
+.nota b{color:var(--tx)}
+footer{margin:88px 0 44px;padding-top:30px;border-top:1px solid var(--bd);
+ color:var(--mut);font-size:13.5px;text-align:center}
+footer a{color:var(--oro);text-decoration:none}
+.legal{font-size:12px;opacity:.72;margin-top:14px;max-width:640px;margin-inline:auto}
+</style></head><body>
+<div class="malla" aria-hidden="true"><i></i><i></i><i></i></div>
+<header><div class="wrap">
+  <div class="pill"><span class="punto"></span> 13 cursos disponibles · entrega inmediata</div>
+  <h1>Cursos que dicen<br><em>exactamente</em> lo que entregan</h1>
+  <p class="lead">Sin «8 horas de contenido» que resultan ser quince minutos.
+     Cada ficha muestra la duración real medida del archivo terminado.</p>
+  <div class="cifras">
+    <div class="cifra"><b data-n="13">0</b><span>cursos</span></div>
+    <div class="cifra"><b data-n="312" data-suf=" min">0</b><span>de video</span></div>
+    <div class="cifra"><b data-n="19" data-suf=" USD">0</b><span>desde</span></div>
+  </div>
+</div></header>
+<div class="wrap">
+  <div class="nota"><b>La regla de la casa:</b> la ficha se genera a partir del curso terminado,
+    nunca al revés. Si dice 25.3 minutos, son
+    25.3 minutos. Puedes comprobarlo con el archivo en la mano.</div>
+
+  <h2>Cursos</h2>
+  <p class="sub">13 disponibles · 312 minutos de video · workbook incluido</p>
+  <div class="grid"><article class="card">
+          <span class="tag">curso</span>
+          <h3>Automatiza tu Trabajo con IA: de Cero a tu Primer Flujo Funcionando</h3>
+          <div class="meta">6 módulos · <b>25.3 min</b> de video
+            · workbook 4 pp</div>
+          
+          <div class="price">$19 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5625595978" target="_blank" rel="noopener">Pagar $19 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Automatiza+tu+Trabajo+con+IA%3A+de+Cero+a+tu+Primer+Flujo+Funcionando&item_number=automatiza-tu-trabajo-con-ia-de-cero-a-tu-primer_es&amount=19.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dautomatiza-tu-trabajo-con-ia-de-cero-a-tu-primer_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Automatiza+tu+Trabajo+con+IA%3A+de+Cero+a+tu+Primer+Flujo+Funcionando&body=Quiero+comprar+%C2%ABAutomatiza+tu+Trabajo+con+IA%3A+de+Cero+a+tu+Primer+Flujo+Funcionando%C2%BB+%28US%2419%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">banca internacional</span>
+          <h3>Cómo Abrir Cuenta Bancaria Empresarial en EE.UU. Siendo Extranjero</h3>
+          <div class="meta">6 módulos · <b>21.7 min</b> de video
+            · workbook 3 pp</div>
+          <div class="gancho">latinos con negocio digital necesitan cobrar en dólares de clientes estadounidenses</div>
+          <div class="price">$29 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=6146000641" target="_blank" rel="noopener">Pagar $29 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=C%C3%B3mo+Abrir+Cuenta+Bancaria+Empresarial+en+EE.UU.+Siendo+Extranjero&item_number=c-mo-abrir-cuenta-bancaria-empresarial-en-ee-uu_es&amount=29.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dc-mo-abrir-cuenta-bancaria-empresarial-en-ee-uu_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+C%C3%B3mo+Abrir+Cuenta+Bancaria+Empresarial+en+EE.UU.+Siendo+Extranjero&body=Quiero+comprar+%C2%ABC%C3%B3mo+Abrir+Cuenta+Bancaria+Empresarial+en+EE.UU.+Siendo+Extranjero%C2%BB+%28US%2429%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">seguridad privada</span>
+          <h3>Cómo Iniciar una Empresa de Seguridad Privada Legalmente</h3>
+          <div class="meta">6 módulos · <b>26.5 min</b> de video
+            · workbook 3 pp</div>
+          <div class="gancho">alta demanda de vigilancia en LatAm con barrera regulatoria que el curso resuelve</div>
+          <div class="price">$29 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5104448737" target="_blank" rel="noopener">Pagar $29 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=C%C3%B3mo+Iniciar+una+Empresa+de+Seguridad+Privada+Legalmente&item_number=c-mo-iniciar-una-empresa-de-seguridad-privada-le_es&amount=29.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dc-mo-iniciar-una-empresa-de-seguridad-privada-le_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+C%C3%B3mo+Iniciar+una+Empresa+de+Seguridad+Privada+Legalmente&body=Quiero+comprar+%C2%ABC%C3%B3mo+Iniciar+una+Empresa+de+Seguridad+Privada+Legalmente%C2%BB+%28US%2429%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">franquicias</span>
+          <h3>Cómo Vender Franquicias: Sistema para Escalar tu Negocio Local</h3>
+          <div class="meta">6 módulos · <b>26.3 min</b> de video
+            · workbook 4 pp</div>
+          <div class="gancho">dueños de negocios exitosos buscan multiplicar sin invertir capital propio</div>
+          <div class="price">$39 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5729587512" target="_blank" rel="noopener">Pagar $39 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=C%C3%B3mo+Vender+Franquicias%3A+Sistema+para+Escalar+tu+Negocio+Local&item_number=c-mo-vender-franquicias-sistema-para-escalar-tu_es&amount=39.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dc-mo-vender-franquicias-sistema-para-escalar-tu_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+C%C3%B3mo+Vender+Franquicias%3A+Sistema+para+Escalar+tu+Negocio+Local&body=Quiero+comprar+%C2%ABC%C3%B3mo+Vender+Franquicias%3A+Sistema+para+Escalar+tu+Negocio+Local%C2%BB+%28US%2439%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">financiamiento pyme</span>
+          <h3>Créditos para tu Negocio: Cómo Calificar aunque Tengas Historial Corto</h3>
+          <div class="meta">6 módulos · <b>20.8 min</b> de video
+            · workbook 3 pp</div>
+          <div class="gancho">dueños de negocios nuevos no saben cómo presentar su perfil ante bancos</div>
+          <div class="price">$22 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=6279450479" target="_blank" rel="noopener">Pagar $22 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Cr%C3%A9ditos+para+tu+Negocio%3A+C%C3%B3mo+Calificar+aunque+Tengas+Historial+Corto&item_number=cr-ditos-para-tu-negocio-c-mo-calificar-aunque-t_es&amount=22.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dcr-ditos-para-tu-negocio-c-mo-calificar-aunque-t_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Cr%C3%A9ditos+para+tu+Negocio%3A+C%C3%B3mo+Calificar+aunque+Tengas+Historial+Corto&body=Quiero+comprar+%C2%ABCr%C3%A9ditos+para+tu+Negocio%3A+C%C3%B3mo+Calificar+aunque+Tengas+Historial+Corto%C2%BB+%28US%2422%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">agroexportación</span>
+          <h3>Exporta Café o Aguacate: Cómo Conseguir tu Primer Comprador Internacional</h3>
+          <div class="meta">6 módulos · <b>23.3 min</b> de video
+            · workbook 4 pp</div>
+          <div class="gancho">productores buscan vender directo al exterior con mejores precios</div>
+          <div class="price">$29 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5612174732" target="_blank" rel="noopener">Pagar $29 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Exporta+Caf%C3%A9+o+Aguacate%3A+C%C3%B3mo+Conseguir+tu+Primer+Comprador+Internacional&item_number=exporta-caf-o-aguacate-c-mo-conseguir-tu-primer_es&amount=29.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dexporta-caf-o-aguacate-c-mo-conseguir-tu-primer_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Exporta+Caf%C3%A9+o+Aguacate%3A+C%C3%B3mo+Conseguir+tu+Primer+Comprador+Internacio&body=Quiero+comprar+%C2%ABExporta+Caf%C3%A9+o+Aguacate%3A+C%C3%B3mo+Conseguir+tu+Primer+Comprador+Internacional%C2%BB+%28US%2429%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">finanzas empresariales</span>
+          <h3>Factoring de Facturas: Convierte Cuentas por Cobrar en Efectivo Hoy</h3>
+          <div class="meta">6 módulos · <b>29.3 min</b> de video
+            · workbook 4 pp</div>
+          <div class="gancho">dueños de pyme con flujo de caja atascado pagan por liquidez inmediata</div>
+          <div class="price">$27 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5050841874" target="_blank" rel="noopener">Pagar $27 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Factoring+de+Facturas%3A+Convierte+Cuentas+por+Cobrar+en+Efectivo+Hoy&item_number=factoring-de-facturas-convierte-cuentas-por-cobr_es&amount=27.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dfactoring-de-facturas-convierte-cuentas-por-cobr_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Factoring+de+Facturas%3A+Convierte+Cuentas+por+Cobrar+en+Efectivo+Hoy&body=Quiero+comprar+%C2%ABFactoring+de+Facturas%3A+Convierte+Cuentas+por+Cobrar+en+Efectivo+Hoy%C2%BB+%28US%2427%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">cuidado geriátrico</span>
+          <h3>Gestiona una Casa de Cuidado de Adultos Mayores: Modelo Rentable</h3>
+          <div class="meta">6 módulos · <b>24.9 min</b> de video
+            · workbook 4 pp</div>
+          <div class="gancho">demanda creciente por envejecimiento poblacional, negocio con flujo recurrente</div>
+          <div class="price">$34 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5919910129" target="_blank" rel="noopener">Pagar $34 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Gestiona+una+Casa+de+Cuidado+de+Adultos+Mayores%3A+Modelo+Rentable&item_number=gestiona-una-casa-de-cuidado-de-adultos-mayores_es&amount=34.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dgestiona-una-casa-de-cuidado-de-adultos-mayores_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Gestiona+una+Casa+de+Cuidado+de+Adultos+Mayores%3A+Modelo+Rentable&body=Quiero+comprar+%C2%ABGestiona+una+Casa+de+Cuidado+de+Adultos+Mayores%3A+Modelo+Rentable%C2%BB+%28US%2434%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">comercio exterior</span>
+          <h3>Importa desde China sin Intermediarios: Tu Primer Contenedor</h3>
+          <div class="meta">6 módulos · <b>25.8 min</b> de video
+            · workbook 3 pp</div>
+          <div class="gancho">emprendedores quieren márgenes de importador, no de revendedor</div>
+          <div class="price">$27 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=6218549039" target="_blank" rel="noopener">Pagar $27 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Importa+desde+China+sin+Intermediarios%3A+Tu+Primer+Contenedor&item_number=importa-desde-china-sin-intermediarios-tu-primer_es&amount=27.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dimporta-desde-china-sin-intermediarios-tu-primer_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Importa+desde+China+sin+Intermediarios%3A+Tu+Primer+Contenedor&body=Quiero+comprar+%C2%ABImporta+desde+China+sin+Intermediarios%3A+Tu+Primer+Contenedor%C2%BB+%28US%2427%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">marketing en salud/estética</span>
+          <h3>Marketing para Clínicas Estéticas: Llena tu Agenda sin Descuentos</h3>
+          <div class="meta">6 módulos · <b>23.4 min</b> de video
+            · workbook 4 pp</div>
+          <div class="gancho">médicos estéticos invierten en pacientes de alto valor, no en likes</div>
+          <div class="price">$34 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5559792972" target="_blank" rel="noopener">Pagar $34 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Marketing+para+Cl%C3%ADnicas+Est%C3%A9ticas%3A+Llena+tu+Agenda+sin+Descuentos&item_number=marketing-para-cl-nicas-est-ticas-llena-tu-agend_es&amount=34.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dmarketing-para-cl-nicas-est-ticas-llena-tu-agend_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Marketing+para+Cl%C3%ADnicas+Est%C3%A9ticas%3A+Llena+tu+Agenda+sin+Descuentos&body=Quiero+comprar+%C2%ABMarketing+para+Cl%C3%ADnicas+Est%C3%A9ticas%3A+Llena+tu+Agenda+sin+Descuentos%C2%BB+%28US%2434%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">constitución de empresas</span>
+          <h3>Registra tu SAS en 72 Horas y Protege tu Patrimonio Personal</h3>
+          <div class="meta">6 módulos · <b>21.4 min</b> de video
+            · workbook 3 pp</div>
+          <div class="gancho">emprendedores temen exponer bienes personales y quieren blindaje legal rápido</div>
+          <div class="price">$19 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5142471591" target="_blank" rel="noopener">Pagar $19 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Registra+tu+SAS+en+72+Horas+y+Protege+tu+Patrimonio+Personal&item_number=registra-tu-sas-en-72-horas-y-protege-tu-patrimo_es&amount=19.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dregistra-tu-sas-en-72-horas-y-protege-tu-patrimo_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Registra+tu+SAS+en+72+Horas+y+Protege+tu+Patrimonio+Personal&body=Quiero+comprar+%C2%ABRegistra+tu+SAS+en+72+Horas+y+Protege+tu+Patrimonio+Personal%C2%BB+%28US%2419%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">seguros</span>
+          <h3>Seguros de Vida como Segundo Ingreso: Guía para Asesores Nuevos</h3>
+          <div class="meta">6 módulos · <b>20.6 min</b> de video
+            · workbook 3 pp</div>
+          <div class="gancho">personas buscan ingreso extra vendiendo pólizas con comisiones altas</div>
+          <div class="price">$19 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5942972811" target="_blank" rel="noopener">Pagar $19 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Seguros+de+Vida+como+Segundo+Ingreso%3A+Gu%C3%ADa+para+Asesores+Nuevos&item_number=seguros-de-vida-como-segundo-ingreso-gu-a-para-a_es&amount=19.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dseguros-de-vida-como-segundo-ingreso-gu-a-para-a_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Seguros+de+Vida+como+Segundo+Ingreso%3A+Gu%C3%ADa+para+Asesores+Nuevos&body=Quiero+comprar+%C2%ABSeguros+de+Vida+como+Segundo+Ingreso%3A+Gu%C3%ADa+para+Asesores+Nuevos%C2%BB+%28US%2419%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">marca personal para profesionales</span>
+          <h3>Vende tus Servicios Profesionales a Precio Premium sin Bajar Tarifas</h3>
+          <div class="meta">6 módulos · <b>23.2 min</b> de video
+            · workbook 4 pp</div>
+          <div class="gancho">abogados, contadores y médicos hartos de competir por precio quieren posicionarse como expertos caros</div>
+          <div class="price">$24 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=4664250352" target="_blank" rel="noopener">Pagar $24 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Vende+tus+Servicios+Profesionales+a+Precio+Premium+sin+Bajar+Tarifas&item_number=vende-tus-servicios-profesionales-a-precio-premi_es&amount=24.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dvende-tus-servicios-profesionales-a-precio-premi_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Vende+tus+Servicios+Profesionales+a+Precio+Premium+sin+Bajar+Tarifas&body=Quiero+comprar+%C2%ABVende+tus+Servicios+Profesionales+a+Precio+Premium+sin+Bajar+Tarifas%C2%BB+%28US%2424%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article></div>
+
+  <h2>Gestión empresarial</h2>
+  <p class="sub">Lo hacemos por ti — constitución de sociedad, RUT y facturación en Colombia</p>
+  <div class="grid"><article class="card">
+          <span class="tag">gestión empresarial</span>
+          <h3>Constitución de tu SAS — gestión completa del trámite</h3>
+          <div class="gancho">Redacción de estatutos, formularios RUES, radicación en Cámara de Comercio y acompañamiento hasta obtener NIT y RUT.</div>
+          <div class="price">$89 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5834866134" target="_blank" rel="noopener">Pagar $89 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Constituci%C3%B3n+de+tu+SAS+%E2%80%94+gesti%C3%B3n+completa+del+tr%C3%A1mite&item_number=constituci-n-de-tu-sas-gesti-n-completa-del-tr-m&amount=89.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dconstituci-n-de-tu-sas-gesti-n-completa-del-tr-m&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Constituci%C3%B3n+de+tu+SAS+%E2%80%94+gesti%C3%B3n+completa+del+tr%C3%A1mite&body=Quiero+comprar+%C2%ABConstituci%C3%B3n+de+tu+SAS+%E2%80%94+gesti%C3%B3n+completa+del+tr%C3%A1mite%C2%BB+%28US%2489%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">gestión tributaria</span>
+          <h3>Inscripción en el RUT y habilitación de facturación electrónica</h3>
+          <div class="gancho">Diligenciamiento del RUT, gestión de cita DIAN, firma electrónica y habilitación del facturador.</div>
+          <div class="price">$59 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=6393276748" target="_blank" rel="noopener">Pagar $59 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Inscripci%C3%B3n+en+el+RUT+y+habilitaci%C3%B3n+de+facturaci%C3%B3n+electr%C3%B3nica&item_number=inscripci-n-en-el-rut-y-habilitaci-n-de-facturac&amount=59.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dinscripci-n-en-el-rut-y-habilitaci-n-de-facturac&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Inscripci%C3%B3n+en+el+RUT+y+habilitaci%C3%B3n+de+facturaci%C3%B3n+electr%C3%B3nica&body=Quiero+comprar+%C2%ABInscripci%C3%B3n+en+el+RUT+y+habilitaci%C3%B3n+de+facturaci%C3%B3n+electr%C3%B3nica%C2%BB+%28US%2459%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">gestión empresarial</span>
+          <h3>Paquete Empresa Lista — SAS + RUT + facturación + cuenta</h3>
+          <div class="gancho">Todo lo anterior más balance de apertura y carpeta de documentos para banco.</div>
+          <div class="price">$229 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5399174002" target="_blank" rel="noopener">Pagar $229 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Paquete+Empresa+Lista+%E2%80%94+SAS+%2B+RUT+%2B+facturaci%C3%B3n+%2B+cuenta&item_number=paquete-empresa-lista-sas-rut-facturaci-n-cuenta&amount=229.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dpaquete-empresa-lista-sas-rut-facturaci-n-cuenta&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Paquete+Empresa+Lista+%E2%80%94+SAS+%2B+RUT+%2B+facturaci%C3%B3n+%2B+cuenta&body=Quiero+comprar+%C2%ABPaquete+Empresa+Lista+%E2%80%94+SAS+%2B+RUT+%2B+facturaci%C3%B3n+%2B+cuenta%C2%BB+%28US%24229%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">finanzas empresariales</span>
+          <h3>Diagnóstico de financiación: factoring, crédito y garantías</h3>
+          <div class="gancho">Sesión de 45 min + informe escrito con las rutas de financiación viables para su caso.</div>
+          <div class="price">$49 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5828548548" target="_blank" rel="noopener">Pagar $49 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Diagn%C3%B3stico+de+financiaci%C3%B3n%3A+factoring%2C+cr%C3%A9dito+y+garant%C3%ADas&item_number=diagn-stico-de-financiaci-n-factoring-cr-dito-y&amount=49.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Ddiagn-stico-de-financiaci-n-factoring-cr-dito-y&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Diagn%C3%B3stico+de+financiaci%C3%B3n%3A+factoring%2C+cr%C3%A9dito+y+garant%C3%ADas&body=Quiero+comprar+%C2%ABDiagn%C3%B3stico+de+financiaci%C3%B3n%3A+factoring%2C+cr%C3%A9dito+y+garant%C3%ADas%C2%BB+%28US%2449%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article></div>
+
+  <footer>
+    ¿Dudas o quieres algo a medida? Escribe a
+    <a href="mailto:apolo489@gmail.com">apolo489@gmail.com</a>
+    <div class="legal">Servicios de <b>gestión y trámite</b> empresarial. No constituyen
+      asesoría jurídica ni representación legal. Los cursos se entregan en video y PDF
+      descargables; al ser contenido digital de acceso inmediato, la compra es definitiva.</div>
+  </footer>
+</div>
+<script>
+// revelado al entrar en pantalla — escalonado, no todos a la vez
+var io=new IntersectionObserver(function(es){es.forEach(function(e,i){
+ if(e.isIntersecting){setTimeout(function(){e.target.classList.add('ver')},(i%6)*55);io.unobserve(e.target)}})},
+ {threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.card').forEach(function(c){io.observe(c)});
+// cifras que cuentan al aparecer
+function contar(el){var f=parseFloat(el.dataset.n),t=0,p=performance.now(),d=1100;
+ (function paso(a){var k=Math.min(1,(a-p)/d),e=1-Math.pow(1-k,3);
+  el.textContent=Math.round(f*e).toLocaleString('es-CO')+(el.dataset.suf||'');
+  if(k<1)requestAnimationFrame(paso)})(p)}
+var io2=new IntersectionObserver(function(es){es.forEach(function(e){
+ if(e.isIntersecting){contar(e.target);io2.unobserve(e.target)}})},{threshold:.5});
+document.querySelectorAll('[data-n]').forEach(function(e){io2.observe(e)});
+</script></body></html>
