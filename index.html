@@ -25,6 +25,9 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,s
 
 /* malla de gradiente viva — el fondo respira, no es un color plano */
 .malla{position:fixed;inset:-30vh -20vw;z-index:-1;filter:blur(85px);opacity:.55;pointer-events:none}
+@media(prefers-color-scheme:light){.malla{opacity:.13}}
+:root[data-theme=light] .malla{opacity:.13}
+:root[data-theme=dark] .malla{opacity:.55}
 .malla i{position:absolute;border-radius:50%;display:block;animation:flotar 26s ease-in-out infinite}
 .malla i:nth-child(1){width:52vw;height:52vw;left:-8%;top:2%;background:#3b2f7e;animation-delay:-2s}
 .malla i:nth-child(2){width:44vw;height:44vw;right:-6%;top:-6%;background:#7a5320;animation-delay:-9s}
@@ -58,9 +61,13 @@ h2{font-size:clamp(22px,3.4vw,32px);margin:76px 0 8px;letter-spacing:-.025em;fon
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(302px,1fr));gap:20px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:19px;padding:24px;
  display:flex;flex-direction:column;backdrop-filter:blur(16px);position:relative;overflow:hidden;
- opacity:0;transform:translateY(26px);transition:opacity .6s cubic-bezier(.2,.7,.3,1),
+ transition:opacity .6s cubic-bezier(.2,.7,.3,1),
  transform .6s cubic-bezier(.2,.7,.3,1),border-color .25s}
-.card.ver{opacity:1;transform:none}
+/* La animación de entrada es MEJORA PROGRESIVA: solo se oculta si el JS ya corrió.
+   Sin JS —o si el observador no dispara— la tarjeta se ve igual. Nunca producto invisible. */
+html.js .card{opacity:0;transform:translateY(26px)}
+html.js .card.ver{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html.js .card{opacity:1;transform:none}}
 .card::after{content:'';position:absolute;inset:0;border-radius:19px;padding:1px;
  background:linear-gradient(135deg,transparent 32%,var(--oro),transparent 68%);
  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
@@ -97,16 +104,17 @@ footer{margin:88px 0 44px;padding-top:30px;border-top:1px solid var(--bd);
  color:var(--mut);font-size:13.5px;text-align:center}
 footer a{color:var(--oro);text-decoration:none}
 .legal{font-size:12px;opacity:.72;margin-top:14px;max-width:640px;margin-inline:auto}
-</style></head><body>
+</style>
+<script>document.documentElement.className+=' js'</script></head><body>
 <div class="malla" aria-hidden="true"><i></i><i></i><i></i></div>
 <header><div class="wrap">
-  <div class="pill"><span class="punto"></span> 13 cursos disponibles · entrega inmediata</div>
+  <div class="pill"><span class="punto"></span> 15 cursos disponibles · entrega inmediata</div>
   <h1>Cursos que dicen<br><em>exactamente</em> lo que entregan</h1>
   <p class="lead">Sin «8 horas de contenido» que resultan ser quince minutos.
      Cada ficha muestra la duración real medida del archivo terminado.</p>
   <div class="cifras">
-    <div class="cifra"><b data-n="13">0</b><span>cursos</span></div>
-    <div class="cifra"><b data-n="312" data-suf=" min">0</b><span>de video</span></div>
+    <div class="cifra"><b data-n="15">0</b><span>cursos</span></div>
+    <div class="cifra"><b data-n="359" data-suf=" min">0</b><span>de video</span></div>
     <div class="cifra"><b data-n="19" data-suf=" USD">0</b><span>desde</span></div>
   </div>
 </div></header>
@@ -116,7 +124,7 @@ footer a{color:var(--oro);text-decoration:none}
     25.3 minutos. Puedes comprobarlo con el archivo en la mano.</div>
 
   <h2>Cursos</h2>
-  <p class="sub">13 disponibles · 312 minutos de video · workbook incluido</p>
+  <p class="sub">15 disponibles · 359 minutos de video · workbook incluido</p>
   <div class="grid"><article class="card">
           <span class="tag">curso</span>
           <h3>Automatiza tu Trabajo con IA: de Cero a tu Primer Flujo Funcionando</h3>
@@ -174,6 +182,13 @@ footer a{color:var(--oro);text-decoration:none}
           <div class="gancho">demanda creciente por envejecimiento poblacional, negocio con flujo recurrente</div>
           <div class="price">$34 <small>USD</small></div>
           <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5919910129" target="_blank" rel="noopener">Pagar $34 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Gestiona+una+Casa+de+Cuidado+de+Adultos+Mayores%3A+Modelo+Rentable&item_number=gestiona-una-casa-de-cuidado-de-adultos-mayores_es&amount=34.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dgestiona-una-casa-de-cuidado-de-adultos-mayores_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Gestiona+una+Casa+de+Cuidado+de+Adultos+Mayores%3A+Modelo+Rentable&body=Quiero+comprar+%C2%ABGestiona+una+Casa+de+Cuidado+de+Adultos+Mayores%3A+Modelo+Rentable%C2%BB+%28US%2434%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">legal financiero</span>
+          <h3>Habeas Data: Cómo Sacar tu Nombre de las Centrales de Riesgo</h3>
+          <div class="meta">6 módulos · <b>25.2 min</b> de video
+            · workbook 4 pp</div>
+          <div class="gancho">proceso desconocido con alto dolor emocional por crédito bloqueado</div>
+          <div class="price">$17 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=6134161568" target="_blank" rel="noopener">Pagar $17 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Habeas+Data%3A+C%C3%B3mo+Sacar+tu+Nombre+de+las+Centrales+de+Riesgo&item_number=habeas-data-c-mo-sacar-tu-nombre-de-las-centrale_es&amount=17.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dhabeas-data-c-mo-sacar-tu-nombre-de-las-centrale_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Habeas+Data%3A+C%C3%B3mo+Sacar+tu+Nombre+de+las+Centrales+de+Riesgo&body=Quiero+comprar+%C2%ABHabeas+Data%3A+C%C3%B3mo+Sacar+tu+Nombre+de+las+Centrales+de+Riesgo%C2%BB+%28US%2417%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
           <span class="tag">comercio exterior</span>
           <h3>Importa desde China sin Intermediarios: Tu Primer Contenedor</h3>
           <div class="meta">6 módulos · <b>25.8 min</b> de video
@@ -188,6 +203,13 @@ footer a{color:var(--oro);text-decoration:none}
           <div class="gancho">médicos estéticos invierten en pacientes de alto valor, no en likes</div>
           <div class="price">$34 <small>USD</small></div>
           <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=5559792972" target="_blank" rel="noopener">Pagar $34 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Marketing+para+Cl%C3%ADnicas+Est%C3%A9ticas%3A+Llena+tu+Agenda+sin+Descuentos&item_number=marketing-para-cl-nicas-est-ticas-llena-tu-agend_es&amount=34.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Dmarketing-para-cl-nicas-est-ticas-llena-tu-agend_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Marketing+para+Cl%C3%ADnicas+Est%C3%A9ticas%3A+Llena+tu+Agenda+sin+Descuentos&body=Quiero+comprar+%C2%ABMarketing+para+Cl%C3%ADnicas+Est%C3%A9ticas%3A+Llena+tu+Agenda+sin+Descuentos%C2%BB+%28US%2434%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
+          <span class="tag">reparación de crédito</span>
+          <h3>Recupera tu Historial Crediticio en 6 Meses: Método Paso a Paso</h3>
+          <div class="meta">6 módulos · <b>21.7 min</b> de video
+            · workbook 4 pp</div>
+          <div class="gancho">millones de latinos reportados negativamente pagan por salir del hueco financiero</div>
+          <div class="price">$19 <small>USD</small></div>
+          <div class="pagos"><a class="btn p1" href="https://nowpayments.io/payment/?iid=4926964824" target="_blank" rel="noopener">Pagar $19 en cripto</a><a class="btn p2" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=apolo489%40gmail.com&item_name=Recupera+tu+Historial+Crediticio+en+6+Meses%3A+M%C3%A9todo+Paso+a+Paso&item_number=recupera-tu-historial-crediticio-en-6-meses-m-to_es&amount=19.00&currency_code=USD&no_shipping=1&return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy%2Fgracias.html%3Fp%3Drecupera-tu-historial-crediticio-en-6-meses-m-to_es&cancel_return=https%3A%2F%2Fjavier2030.github.io%2Fnexoacademy" target="_blank" rel="noopener">Tarjeta o PayPal</a><a class="btn p3" href="mailto:apolo489@gmail.com?subject=Compra%3A+Recupera+tu+Historial+Crediticio+en+6+Meses%3A+M%C3%A9todo+Paso+a+Paso&body=Quiero+comprar+%C2%ABRecupera+tu+Historial+Crediticio+en+6+Meses%3A+M%C3%A9todo+Paso+a+Paso%C2%BB+%28US%2419%29.%0A%0AVoy+a+pagar+por%3A+%28Nequi+%2F+transferencia+Bancolombia+%2F+otro%29%0AMi+correo+para+recibir+el+curso%3A+%0A">Nequi o transferencia (Colombia)</a></div></article><article class="card">
           <span class="tag">constitución de empresas</span>
           <h3>Registra tu SAS en 72 Horas y Protege tu Patrimonio Personal</h3>
           <div class="meta">6 módulos · <b>21.4 min</b> de video
@@ -243,6 +265,10 @@ footer a{color:var(--oro);text-decoration:none}
   </footer>
 </div>
 <script>
+// marca que el JS vive: recién aquí el CSS puede ocultar para animar
+document.documentElement.className+=' js';
+// red de seguridad: si algo falla, a los 2.5 s todo se muestra igual
+setTimeout(function(){document.querySelectorAll('.card').forEach(function(c){c.classList.add('ver')})},2500);
 // revelado al entrar en pantalla — escalonado, no todos a la vez
 var io=new IntersectionObserver(function(es){es.forEach(function(e,i){
  if(e.isIntersecting){setTimeout(function(){e.target.classList.add('ver')},(i%6)*55);io.unobserve(e.target)}})},
