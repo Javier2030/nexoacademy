@@ -106,14 +106,29 @@ footer a{color:var(--oro);text-decoration:none}
 <div class="wrap"><header>
   <div class="pill"><span class="punto"></span> pago registrado</div>
   <h1>Gracias. <em>Ya está.</em></h1>
-  <p class="lead">Recibimos tu pago. Envíanos el correo donde quieres recibir el curso y te
-     llega el enlace de descarga — video, workbook y plantillas.</p>
-  <div style="margin-top:32px">
-    <a class="btn p1" style="display:inline-flex;padding:14px 30px"
-       href="mailto:apolo489@gmail.com?subject=Recibi%20mi%20pago%20-%20enviar%20curso">
-       Enviar mi correo de entrega</a>
+  <p class="lead">Recibimos tu pago. Pídenos la entrega por WhatsApp y te llega el enlace de
+     descarga — video, workbook y plantillas. Suele tomar minutos.</p>
+  <div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+    <a class="btn p1" id="bwa" style="display:inline-flex;padding:14px 30px"
+       href="https://wa.me/573014232500" target="_blank" rel="noopener">
+       Pedir mi curso por WhatsApp</a>
+    <a class="btn p2" id="bml" style="display:inline-flex;padding:14px 30px"
+       href="mailto:apolo489@gmail.com">Prefiero por correo</a>
   </div>
-  <p class="lead" style="font-size:14px;margin-top:26px">
-     Si prefieres, escribe directo a <a href="mailto:apolo489@gmail.com" style="color:var(--oro)">apolo489@gmail.com</a>
-     con el nombre del curso.</p>
+  <p class="lead" id="cual" style="font-size:14px;margin-top:26px"></p>
+  <script>
+  (function(){
+    // El enlace de pago devuelve ?p=slug: se usa para que el comprador no tenga que
+    // escribir qué compró. Cada campo que el cliente tiene que rellenar cuesta ventas.
+    var p=new URLSearchParams(location.search).get('p')||'';
+    var nom=p?p.replace(/_es$/,'').replace(/-/g,' ').replace(/\b\w/g,function(m){return m.toUpperCase()}):'';
+    var txt=nom?('Hola, acabo de pagar el curso: '+nom+'. Por favor envienme el enlace de descarga.')
+                :'Hola, acabo de pagar un curso de NEXO Academy. Por favor envienme el enlace de descarga.';
+    var wa=document.getElementById('bwa'); if(wa) wa.href='https://wa.me/573014232500?text='+encodeURIComponent(txt);
+    var ml=document.getElementById('bml');
+    if(ml) ml.href='mailto:apolo489@gmail.com?subject='+encodeURIComponent(nom?('Entrega del curso: '+nom):'Entrega de mi curso')
+                 +'&body='+encodeURIComponent(txt);
+    if(nom) document.getElementById('cual').innerHTML='Curso: <b>'+nom+'</b>';
+  })();
+  </script>
 </header></div></body></html>
