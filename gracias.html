@@ -101,7 +101,8 @@ footer{margin:88px 0 44px;padding-top:30px;border-top:1px solid var(--bd);
 footer a{color:var(--oro);text-decoration:none}
 .legal{font-size:12px;opacity:.72;margin-top:14px;max-width:640px;margin-inline:auto}
 </style>
-<script>document.documentElement.className+=' js'</script></head><body>
+<script>document.documentElement.className+=' js'</script>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","3j9kkblzoj");</script></head><body>
 <div class="malla" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="wrap"><header>
   <div class="pill"><span class="punto"></span> pago registrado</div>
@@ -118,6 +119,7 @@ footer a{color:var(--oro);text-decoration:none}
   <p class="lead" id="cual" style="font-size:14px;margin-top:26px"></p>
   <script>
   (function(){
+    if(window.clarity){try{clarity('event','pago_recibido')}catch(e){}}
     // El enlace de pago devuelve ?p=slug: se usa para que el comprador no tenga que
     // escribir qué compró. Cada campo que el cliente tiene que rellenar cuesta ventas.
     var p=new URLSearchParams(location.search).get('p')||'';
