@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Términos y condiciones — NEXO Academy</title><meta name="description" content="Quién vende, precios, pago, entrega, retracto, garantía y reclamos en NEXO Academy.">
+<link rel="canonical" href="https://javier2030.github.io/nexoacademy/terminos.html">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --bg:#080a12; --bg2:#0e1220; --card:rgba(255,255,255,.045); --bd:rgba(255,255,255,.10);
+ --tx:#eef2fb; --mut:#95a0bb; --oro:#f0c977; --oro2:#ffe0a3; --verde:#4fe0a8;
+}
+@media(prefers-color-scheme:light){:root{
+ --bg:#f7f8fc; --bg2:#eef1f8; --card:rgba(255,255,255,.75); --bd:rgba(15,20,40,.10);
+ --tx:#101527; --mut:#5b6788; --oro:#b8862c; --oro2:#8c6414; --verde:#0e9e6a}}
+:root[data-theme=dark]{--bg:#080a12;--bg2:#0e1220;--card:rgba(255,255,255,.045);
+ --bd:rgba(255,255,255,.10);--tx:#eef2fb;--mut:#95a0bb;--oro:#f0c977;--oro2:#ffe0a3;--verde:#4fe0a8}
+:root[data-theme=light]{--bg:#f7f8fc;--bg2:#eef1f8;--card:rgba(255,255,255,.75);
+ --bd:rgba(15,20,40,.10);--tx:#101527;--mut:#5b6788;--oro:#b8862c;--oro2:#8c6414;--verde:#0e9e6a}
+
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+ background:var(--bg);color:var(--tx);line-height:1.62;-webkit-font-smoothing:antialiased;
+ overflow-x:hidden}
+
+/* malla de gradiente viva — el fondo respira, no es un color plano */
+.malla{position:fixed;inset:-30vh -20vw;z-index:-1;filter:blur(85px);opacity:.55;pointer-events:none}
+@media(prefers-color-scheme:light){.malla{opacity:.13}}
+:root[data-theme=light] .malla{opacity:.13}
+:root[data-theme=dark] .malla{opacity:.55}
+.malla i{position:absolute;border-radius:50%;display:block;animation:flotar 26s ease-in-out infinite}
+.malla i:nth-child(1){width:52vw;height:52vw;left:-8%;top:2%;background:#3b2f7e;animation-delay:-2s}
+.malla i:nth-child(2){width:44vw;height:44vw;right:-6%;top:-6%;background:#7a5320;animation-delay:-9s}
+.malla i:nth-child(3){width:46vw;height:46vw;left:22%;bottom:-14%;background:#164b52;animation-delay:-16s}
+@keyframes flotar{0%,100%{transform:translate(0,0) scale(1)}
+ 33%{transform:translate(5vw,-4vh) scale(1.12)} 66%{transform:translate(-4vw,5vh) scale(.93)}}
+@media(prefers-reduced-motion:reduce){.malla i{animation:none}}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+header{padding:96px 0 44px;text-align:center;position:relative}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--card);
+ border:1px solid var(--bd);border-radius:999px;padding:7px 16px;font-size:13px;
+ color:var(--mut);margin-bottom:24px;backdrop-filter:blur(12px)}
+.punto{width:7px;height:7px;border-radius:50%;background:var(--verde);
+ box-shadow:0 0 0 0 var(--verde);animation:latir 2.2s infinite}
+@keyframes latir{0%{box-shadow:0 0 0 0 rgba(79,224,168,.6)}70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(32px,6.2vw,62px);letter-spacing:-.035em;line-height:1.06;font-weight:800}
+h1 em{font-style:normal;background:linear-gradient(105deg,var(--oro),var(--oro2) 55%,var(--oro));
+ -webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mut);font-size:clamp(15px,2.1vw,19px);margin:20px auto 0;max-width:640px}
+
+.cifras{display:flex;gap:38px;justify-content:center;flex-wrap:wrap;margin:44px 0 8px}
+.cifra b{display:block;font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-.03em;
+ background:linear-gradient(180deg,var(--tx),var(--mut));-webkit-background-clip:text;
+ background-clip:text;color:transparent}
+.cifra span{font-size:12.5px;color:var(--mut);letter-spacing:.07em;text-transform:uppercase}
+
+h2{font-size:clamp(22px,3.4vw,32px);margin:76px 0 8px;letter-spacing:-.025em;font-weight:750}
+.sub{color:var(--mut);font-size:15px;margin-bottom:26px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(302px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:19px;padding:24px;
+ display:flex;flex-direction:column;backdrop-filter:blur(16px);position:relative;overflow:hidden;
+ transition:opacity .6s cubic-bezier(.2,.7,.3,1),
+ transform .6s cubic-bezier(.2,.7,.3,1),border-color .25s}
+/* La animación de entrada es MEJORA PROGRESIVA: solo se oculta si el JS ya corrió.
+   Sin JS —o si el observador no dispara— la tarjeta se ve igual. Nunca producto invisible. */
+html.js .card{opacity:0;transform:translateY(26px)}
+html.js .card.ver{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html.js .card{opacity:1;transform:none}}
+.card::after{content:'';position:absolute;inset:0;border-radius:19px;padding:1px;
+ background:linear-gradient(135deg,transparent 32%,var(--oro),transparent 68%);
+ -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+ -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::after{opacity:.75}
+.card:hover{transform:translateY(-5px)}
+.tag{align-self:flex-start;background:rgba(240,201,119,.11);color:var(--oro);
+ font-size:11px;padding:4px 11px;border-radius:999px;letter-spacing:.06em;
+ text-transform:uppercase;font-weight:650;margin-bottom:13px}
+.card h3{font-size:17.5px;line-height:1.32;margin-bottom:11px;letter-spacing:-.015em;font-weight:700}
+.meta{color:var(--mut);font-size:13.5px;margin-bottom:8px}
+.gancho{color:var(--mut);font-size:13.5px;margin-bottom:16px;opacity:.85}
+.price{font-size:31px;font-weight:800;letter-spacing:-.035em;margin:auto 0 15px;
+ background:linear-gradient(105deg,var(--oro),var(--oro2));-webkit-background-clip:text;
+ background-clip:text;color:transparent}
+.price small{font-size:13px;color:var(--mut);-webkit-text-fill-color:var(--mut);font-weight:500}
+
+.pagos{display:flex;flex-direction:column;gap:7px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;
+ padding:12px;border-radius:11px;text-decoration:none;font-size:14.5px;font-weight:650;
+ border:1px solid transparent;transition:.18s;cursor:pointer}
+.btn.p1{background:linear-gradient(105deg,var(--oro),var(--oro2));color:#12141d}
+.btn.p1:hover{filter:brightness(1.09);transform:translateY(-1px)}
+.btn.p2{background:transparent;color:var(--tx);border-color:var(--bd)}
+.btn.p2:hover{border-color:var(--oro);color:var(--oro)}
+.btn.p3{background:transparent;color:var(--mut);font-size:13px;padding:8px}
+.btn.p3:hover{color:var(--oro)}
+
+.nota{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--verde);
+ border-radius:0 14px 14px 0;padding:17px 21px;margin:30px 0;color:var(--mut);font-size:14.5px;
+ backdrop-filter:blur(12px)}
+.nota b{color:var(--tx)}
+footer{margin:88px 0 44px;padding-top:30px;border-top:1px solid var(--bd);
+ color:var(--mut);font-size:13.5px;text-align:center}
+footer a{color:var(--oro);text-decoration:none}
+.legal{font-size:12px;opacity:.72;margin-top:14px;max-width:640px;margin-inline:auto}
+
+.doc{max-width:760px;margin:0 auto;color:var(--mut);font-size:15.5px;line-height:1.7}
+.doc h2{color:var(--tx);font-size:21px;margin:38px 0 8px} .doc b{color:var(--tx)}
+.doc ul{margin:8px 0 8px 22px} .doc a{color:var(--oro)}</style>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","3j9kkblzoj");</script></head><body>
+<div class="wrap"><header style="padding:64px 0 24px"><h1 style="font-size:clamp(28px,5vw,44px)">Términos y condiciones</h1>
+<p class="lead">Vigente desde el 22 de octubre de 2026. <a href="./" style="color:var(--oro)">Volver a la tienda</a></p></header>
+<div class="doc">
+<h2>1. Quién vende</h2><p>NEXO Academy es una tienda de <b>César Augusto Pérez Mata</b>, persona natural, NIT 700.206.704-1, domicilio en Bogotá D.C., Colombia. WhatsApp y teléfono <a href="https://wa.me/573223623930">+57 322 362 3930</a>, correo <a href="mailto:apolo489@gmail.com">apolo489@gmail.com</a>.</p>
+<h2>2. Qué se vende</h2><ul>
+<li><b>Cursos:</b> video y workbook en PDF descargables. La ficha de cada curso dice la duración real del video y las páginas del workbook.</li>
+<li><b>Guías prácticas:</b> documentos PDF.</li>
+<li><b>Servicios de gestión empresarial</b> en Colombia (constitución de sociedad, RUT, facturación): son servicios de gestión y trámite; no constituyen asesoría jurídica ni representación legal. Si su caso necesita un abogado, se lo decimos por escrito para que usted lo contrate directamente.</li></ul>
+<h2>3. Precio y pago</h2><p>Los precios están en dólares estadounidenses (USD) y son el valor final: no se suma IVA ni otros cargos del vendedor. Se puede pagar en criptomonedas por NOWPayments, o por Nequi o transferencia en Colombia, coordinando por correo; en ese caso le confirmamos el valor en pesos antes de que pague. La red, la plataforma o el banco que usted elija pueden cobrar sus propias comisiones.</p>
+<h2>4. Entrega</h2><p>Cuando el pago se confirma, le enviamos el enlace de descarga por WhatsApp o por correo, normalmente el mismo día. Los servicios de gestión empiezan cuando usted entrega los documentos que pide cada trámite; los plazos de las entidades no dependen de nosotros.</p>
+<h2>5. Derecho de retracto</h2><p>Los cursos y las guías son contenido digital que se entrega de inmediato y, por su naturaleza, no puede devolverse; por eso no tienen derecho de retracto (artículo 47 de la Ley 1480 de 2011). En los servicios de gestión puede retractarse dentro de los cinco (5) días hábiles siguientes a la compra, siempre que el servicio no haya empezado con su acuerdo; le devolvemos el dinero dentro de los treinta (30) días calendario siguientes.</p>
+<h2>6. Garantía</h2><p>Si el enlace no funciona, el archivo está dañado o el contenido no corresponde a lo que dice la ficha, escríbanos: lo corregimos o le devolvemos el dinero.</p>
+<h2>7. Peticiones, quejas y reclamos</h2><p>Por WhatsApp o correo a los datos del punto 1. Respondemos en máximo quince (15) días hábiles. Si no queda satisfecho, puede acudir a la Superintendencia de Industria y Comercio.</p>
+<h2>8. Propiedad intelectual</h2><p>El contenido es para uso personal del comprador. No se puede revender, compartir ni publicar sin autorización escrita (Ley 23 de 1982).</p></div>
+<footer><div class="legal">Vende: <b>César Augusto Pérez Mata</b> · NIT 700.206.704-1 (persona natural) · Bogotá D.C., Colombia · WhatsApp <a href="https://wa.me/573223623930" rel="noopener">+57 322 362 3930</a> · <a href="mailto:apolo489@gmail.com">apolo489@gmail.com</a><br><a href="terminos.html">Términos y condiciones</a> · <a href="privacidad.html">Política de privacidad</a></div></footer></div></body></html>
